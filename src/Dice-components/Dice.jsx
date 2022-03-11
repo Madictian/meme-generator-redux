@@ -2,12 +2,14 @@ import { useDispatch } from "react-redux"
 import { diceActions } from "../store/diceSlice";
 
  
- function Dice({ saved, id, value,  }) {
+ function Dice({ id, value,  }) {
 
   const dispatch = useDispatch();
+
   
   const saveDice = (id) => {
     dispatch(diceActions.save(id));
+
   }
   
    return (

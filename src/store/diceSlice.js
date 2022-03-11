@@ -16,6 +16,13 @@ const diceSlice = createSlice({
                     diceValue: Math.floor(Math.random() * 6 + 1),
                     saved: false}]
                 }}
+            else{
+                for (let i = 0; i < state.diceList.length; i++) {
+                    state.diceList[i].saved === true ? document.getElementById('dice' + i).style.backgroundColor = 'green' :  document.getElementById('dice' + i).style.backgroundColor = 'white';
+
+                }
+                
+            }
         },
 
         reroll(state, action) {
@@ -29,8 +36,8 @@ const diceSlice = createSlice({
         
         save(state, action) {
             const id = action.payload;
+            state.diceList[id].saved === true ? document.getElementById('dice'+id).style.backgroundColor = 'white' :  document.getElementById('dice'+id).style.backgroundColor = 'green';
             state.diceList[id].saved = !state.diceList[id].saved
-        
         },
 
         reset(state, action) {
